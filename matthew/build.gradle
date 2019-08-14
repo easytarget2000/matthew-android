@@ -4,7 +4,7 @@ apply plugin: 'com.android.library'
 publish {
 
     def groupProjectID = 'eu.ezytarget.matthew'
-    def artifactProjectID = 'matthew'
+    def artifactProjectID = 'matthew-android'
     def publishVersionID = '0.0.2'
 
     userOrg = 'easytarget'
