@@ -8,7 +8,7 @@ publish {
     def publishVersionID = '0.0.2'
 
     userOrg = 'easytarget'
-    repoName = 'matthew'
+    repoName = 'easyrep'
     groupId = groupProjectID
     artifactId = artifactProjectID
     publishVersion = publishVersionID
