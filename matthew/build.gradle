@@ -1,4 +1,21 @@
+apply plugin: 'com.novoda.bintray-release'
 apply plugin: 'com.android.library'
+
+publish {
+
+    def groupProjectID = 'eu.ezytarget.matthew'
+    def artifactProjectID = 'matthew'
+    def publishVersionID = '0.0.2'
+
+    userOrg = 'easytarget'
+    repoName = 'matthew'
+    groupId = groupProjectID
+    artifactId = artifactProjectID
+    publishVersion = publishVersionID
+    desc = 'An Android library for drawing Material-themed images.'
+    website = 'https://github.com/easytargetmixel/matthew-android'
+
+}
 
 android {
     compileSdkVersion 28
@@ -8,8 +25,8 @@ android {
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "0.0.2"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
