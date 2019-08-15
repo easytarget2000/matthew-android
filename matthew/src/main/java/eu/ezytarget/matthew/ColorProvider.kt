@@ -12,7 +12,7 @@ internal class ColorProvider(resources: Resources, resourcesReader: ResourcesRea
         availablePalettes = resourcesReader.getArrayOfIntArrays(resources, paletteResourcesID)
     }
 
-    fun selectAndFusePalettes(palettes: Array<ColorPalette>) {
+    fun selectAndCombinePalettes(palettes: Array<ColorPalette>) {
         val colorList = ArrayList<Color>()
         for (palette in palettes) {
             colorList.addAll(palette)
