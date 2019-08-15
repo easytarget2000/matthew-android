@@ -3,7 +3,7 @@ package eu.ezytarget.matthew
 import android.content.res.Resources
 import androidx.annotation.ArrayRes
 
-class ColorProvider {
+class ColorSource {
 
     lateinit var availablePalettes: Array<ColorPalette>
     lateinit var palette: ColorPalette
@@ -12,7 +12,7 @@ class ColorProvider {
         availablePalettes = resourcesReader.getArrayOfIntArrays(resources, paletteResourcesID)
     }
 
-    fun selectAndCombinePalettes(palettes: Array<ColorPalette>) {
+    fun selectAndCombinePalettes(vararg palettes: ColorPalette) {
         val colorList = ArrayList<Color>()
         for (palette in palettes) {
             colorList.addAll(palette)

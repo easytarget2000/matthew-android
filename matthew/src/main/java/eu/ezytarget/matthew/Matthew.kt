@@ -5,7 +5,7 @@ import android.graphics.Canvas
 
 class Matthew(private val canvas: Canvas = Canvas()) {
 
-    var colorProvider: ColorProvider = ColorProvider()
+    var colorSource: ColorSource = ColorSource()
     internal var canvasFiller: CanvasFiller = CanvasFiller()
 
     internal constructor(
@@ -15,8 +15,22 @@ class Matthew(private val canvas: Canvas = Canvas()) {
         this.canvasFiller = canvasFiller
     }
 
+    fun drawSeeded(resources: Resources, width: Int, height: Int, seed:Int) {
+        populateColorProvider(resources)
+        selectPalettes()
+        val backgroundColor = colorSource.palette.first()
+        fillCanvas(backgroundColor)
+    }
+
     fun populateColorProvider(resources: Resources) {
-        colorProvider.populate(resources)
+        colorSource.populate(resources)
+    }
+
+    fun selectPalettes() {
+        val availablePalettes = colorSource.availablePalettes
+        val firstPalette = availablePalettes.first()
+        val lastPalette = availablePalettes.last()
+        colorSource.selectAndCombinePalettes(firstPalette, lastPalette)
     }
 
     fun fillCanvas(color: Color) {
