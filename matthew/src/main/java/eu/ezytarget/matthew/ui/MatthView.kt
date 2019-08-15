@@ -1,4 +1,4 @@
-package eu.ezytarget.matthew_examples
+package eu.ezytarget.matthew.ui
 
 import android.content.Context
 import android.graphics.Canvas
@@ -6,9 +6,9 @@ import android.util.AttributeSet
 import android.view.View
 import eu.ezytarget.matthew.Matthew
 
-class ExampleView: View {
+class MatthView: View {
 
-    private val matthew: Matthew
+    var matthew: Matthew
 
     @JvmOverloads constructor(
         context: Context,
