@@ -6,10 +6,18 @@ import androidx.annotation.ArrayRes
 internal class ColorProvider(resources: Resources, resourcesReader: ResourcesReader = ResourcesReader()) {
 
     val availablePalettes: Array<ColorPalette>
-    var selectedPalettes: Array<ColorPalette>? = null
+    lateinit var palette: ColorPalette
 
     init {
         availablePalettes = resourcesReader.getArrayOfIntArrays(resources, paletteResourcesID)
+    }
+
+    fun selectAndFusePalettes(palettes: Array<ColorPalette>) {
+        val colorList = ArrayList<Color>()
+        for (palette in palettes) {
+            colorList.addAll(palette)
+        }
+        palette = colorList.toTypedArray()
     }
 
     companion object {
