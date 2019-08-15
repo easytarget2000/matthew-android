@@ -8,7 +8,7 @@ import eu.ezytarget.matthew.Matthew
 
 class MatthView: View {
 
-    private val matthew: Matthew
+    var matthew: Matthew
 
     @JvmOverloads constructor(
         context: Context,
