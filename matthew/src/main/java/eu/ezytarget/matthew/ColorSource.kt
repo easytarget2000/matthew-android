@@ -10,6 +10,11 @@ class ColorSource {
 
     internal fun populate(resources: Resources, resourcesReader: ResourcesReader = ResourcesReader()) {
         availablePalettes = resourcesReader.getArrayOfIntArrays(resources, paletteResourcesID)
+        selectFirstAvailablePalette()
+    }
+
+    private fun selectFirstAvailablePalette() {
+        selectAndCombinePalettes(availablePalettes.first())
     }
 
     fun selectAndCombinePalettes(vararg palettes: ColorPalette) {
