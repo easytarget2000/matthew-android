@@ -3,12 +3,12 @@ package eu.ezytarget.matthew
 import android.content.res.Resources
 import androidx.annotation.ArrayRes
 
-internal class ColorProvider(resources: Resources, resourcesReader: ResourcesReader = ResourcesReader()) {
+class ColorProvider {
 
-    val availablePalettes: Array<ColorPalette>
+    lateinit var availablePalettes: Array<ColorPalette>
     lateinit var palette: ColorPalette
 
-    init {
+    internal fun populate(resources: Resources, resourcesReader: ResourcesReader = ResourcesReader()) {
         availablePalettes = resourcesReader.getArrayOfIntArrays(resources, paletteResourcesID)
     }
 
