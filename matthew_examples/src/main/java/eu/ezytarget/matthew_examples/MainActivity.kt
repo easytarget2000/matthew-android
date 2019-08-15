@@ -20,7 +20,5 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun generateExample() {
-        val color = 0xFFFF00FF.toInt()
-        matthew.fillCanvas(color)
     }
 }

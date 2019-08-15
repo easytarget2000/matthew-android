@@ -1,0 +1,26 @@
+<resources>
+
+    <!--Color Palettes: -->
+
+    <array name="material_color_palette_1">
+        <item>#D32F2F</item>
+        <item>#FFCDD2</item>
+        <item>#F44336</item>
+        <item>#CDDC39</item>
+    </array>
+
+    <array name="material_color_palette_2">
+        <item>#0288D1</item>
+        <item>#B3E5FC</item>
+        <item>#03A9F4</item>
+        <item>#CDDC39</item>
+    </array>
+
+    <!-- Array of arrays (array IDs): -->
+
+    <array name="material_color_palettes">
+        <item>@array/material_color_palette_1</item>
+        <item>@array/material_color_palette_2</item>
+    </array>
+
+</resources>
