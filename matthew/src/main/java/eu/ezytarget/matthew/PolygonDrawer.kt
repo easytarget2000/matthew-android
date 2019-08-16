@@ -22,23 +22,30 @@ class PolygonDrawer(private val paint: Paint = Paint()) {
             paint.color = color
         }
 
-    fun draw(x: Float, y: Float, radius: Float, numOfEdges: Int, canvas: Canvas) {
-        if (numOfEdges < MIN_NUM_OF_VERTICES) {
-            Log.e(tag, "Minimum number of vertices: $MIN_NUM_OF_VERTICES, given: $numOfEdges")
+    fun draw(
+        x: Float,
+        y: Float,
+        radius: Float,
+        radiantAngle: Float,
+        numberOfEdges: Int,
+        canvas: Canvas
+    ) {
+        if (numberOfEdges < MIN_NUM_OF_VERTICES) {
+            Log.e(tag, "Minimum number of vertices: $MIN_NUM_OF_VERTICES, given: $numberOfEdges")
             return
         }
 
-        val cappedNumOfEdges = if (numOfEdges > MAX_NUM_OF_VERTICES) {
-            Log.w(tag, "Maximum number of vertices: $MAX_NUM_OF_VERTICES, given: $numOfEdges")
+        val cappedNumberOfEdges = if (numberOfEdges > MAX_NUM_OF_VERTICES) {
+            Log.w(tag, "Maximum number of vertices: $MAX_NUM_OF_VERTICES, given: $numberOfEdges")
             MAX_NUM_OF_VERTICES
         } else {
-            numOfEdges
+            numberOfEdges
         }
 
         val polygonPath = Path()
 
-        for (edge in 1..cappedNumOfEdges) {
-            val angle = TWO_PI * edge / cappedNumOfEdges
+        for (edge in 1..cappedNumberOfEdges) {
+            val angle = TWO_PI * edge / cappedNumberOfEdges
             val pointX = (x + radius * cos(angle))
             val pointY = (y + radius * sin(angle))
 
