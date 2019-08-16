@@ -14,7 +14,7 @@ class PolygonPainter: Painter() {
         centerX: Float,
         centerY: Float,
         radius: Float,
-        radiantAngle: Float = 0f,
+        degrees: Float = 0f,
         numberOfEdges: Int,
         canvas: Canvas
     ) {
@@ -30,10 +30,12 @@ class PolygonPainter: Painter() {
             numberOfEdges
         }
 
+        canvas.rotate(degrees, centerX, centerY)
+
         val polygonPath = Path()
 
         for (edge in 1..cappedNumberOfEdges) {
-            val angle = radiantAngle + (TWO_PI * edge / cappedNumberOfEdges)
+            val angle = TWO_PI * edge / cappedNumberOfEdges
             val pointX = (centerX + radius * cos(angle))
             val pointY = (centerY + radius * sin(angle))
 
