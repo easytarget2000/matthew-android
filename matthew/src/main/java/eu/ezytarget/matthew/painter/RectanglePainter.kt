@@ -1,8 +1,10 @@
 package eu.ezytarget.matthew.painter
 
-class RectanglePainter: Painter {
+import android.graphics.Canvas
 
-    fun paint() {
-        
+class RectanglePainter: Painter() {
+
+    fun paint(left: Float, top: Float, width: Float, height: Float, radiantAngle: Float, canvas: Canvas) {
+
     }
 }

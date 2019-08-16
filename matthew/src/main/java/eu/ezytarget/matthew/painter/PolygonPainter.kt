@@ -11,8 +11,8 @@ import kotlin.math.sin
 class PolygonPainter: Painter() {
 
     fun paint(
-        x: Float,
-        y: Float,
+        centerX: Float,
+        centerY: Float,
         radius: Float,
         radiantAngle: Float = 0f,
         numberOfEdges: Int,
@@ -34,8 +34,8 @@ class PolygonPainter: Painter() {
 
         for (edge in 1..cappedNumberOfEdges) {
             val angle = radiantAngle + (TWO_PI * edge / cappedNumberOfEdges)
-            val pointX = (x + radius * cos(angle))
-            val pointY = (y + radius * sin(angle))
+            val pointX = (centerX + radius * cos(angle))
+            val pointY = (centerY + radius * sin(angle))
 
             if (edge == 1) {
                 polygonPath.moveTo(pointX, pointY)
