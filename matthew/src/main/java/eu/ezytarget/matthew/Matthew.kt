@@ -27,7 +27,7 @@ class Matthew() {
         val polygonRadius = min(canvas.width, canvas.height) * 0.33f
         val polygonAngle = PI.toFloat() / 4f
         val numberOfPolygonEdges = 4
-        polygonPainter.draw(
+        polygonPainter.paint(
             polygonX,
             polygonY,
             polygonRadius,

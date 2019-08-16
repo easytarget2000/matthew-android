@@ -1,10 +1,8 @@
 package eu.ezytarget.matthew.painter
 
 import android.graphics.Canvas
-import android.graphics.Paint
 import android.graphics.Path
 import android.util.Log
-import eu.ezytarget.matthew.Color
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
@@ -12,7 +10,7 @@ import kotlin.math.sin
 
 class PolygonPainter: Painter() {
 
-    fun draw(
+    fun paint(
         x: Float,
         y: Float,
         radius: Float,
@@ -48,10 +46,10 @@ class PolygonPainter: Painter() {
 
         polygonPath.close()
 
-        draw(polygonPath, canvas)
+        paint(polygonPath, canvas)
     }
 
-    fun draw(path: Path, canvas: Canvas) {
+    fun paint(path: Path, canvas: Canvas) {
         canvas.drawPath(path, paint)
     }
 
