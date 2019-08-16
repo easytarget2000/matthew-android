@@ -26,7 +26,7 @@ class PolygonDrawer(private val paint: Paint = Paint()) {
         x: Float,
         y: Float,
         radius: Float,
-        radiantAngle: Float,
+        radiantAngle: Float = 0f,
         numberOfEdges: Int,
         canvas: Canvas
     ) {
@@ -45,7 +45,7 @@ class PolygonDrawer(private val paint: Paint = Paint()) {
         val polygonPath = Path()
 
         for (edge in 1..cappedNumberOfEdges) {
-            val angle = TWO_PI * edge / cappedNumberOfEdges
+            val angle = radiantAngle + (TWO_PI * edge / cappedNumberOfEdges)
             val pointX = (x + radius * cos(angle))
             val pointY = (y + radius * sin(angle))
 
