@@ -1,26 +1,16 @@
-package eu.ezytarget.matthew
+package eu.ezytarget.matthew.painter
 
 import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Path
 import android.util.Log
-import android.R.attr.radius
-import android.R.attr.centerY
-import android.R.attr.centerX
+import eu.ezytarget.matthew.Color
 import kotlin.math.PI
 import kotlin.math.cos
 import kotlin.math.sin
 
 
-class PolygonDrawer(private val paint: Paint = Paint()) {
-
-    var color: Color
-        get() {
-            return paint.color
-        }
-        set(color) {
-            paint.color = color
-        }
+class PolygonPainter: Painter() {
 
     fun draw(
         x: Float,
@@ -69,6 +59,6 @@ class PolygonDrawer(private val paint: Paint = Paint()) {
         const val MIN_NUM_OF_VERTICES = 3
         const val MAX_NUM_OF_VERTICES = 16
         private const val TWO_PI = 2f * PI.toFloat()
-        val tag = PolygonDrawer::class.java.simpleName
+        val tag = PolygonPainter::class.java.simpleName
     }
 }
