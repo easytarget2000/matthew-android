@@ -2,11 +2,13 @@ package eu.ezytarget.matthew
 
 import android.content.res.Resources
 import android.graphics.Canvas
+import kotlin.math.min
 
 class Matthew() {
 
     var colorSource: ColorSource = ColorSource()
-    internal var canvasFiller: CanvasFiller = CanvasFiller()
+    var canvasFiller: CanvasFiller = CanvasFiller()
+    var polygonDrawer: PolygonDrawer = PolygonDrawer()
 
     constructor(resources: Resources): this() {
         populateColorProvider(resources)
@@ -16,6 +18,13 @@ class Matthew() {
         selectPalettes()
         val backgroundColor = colorSource.palette.first()
         fillCanvas(canvas, backgroundColor)
+
+        polygonDrawer.color = colorSource.palette.last()
+        val polygonX = canvas.width / 2f
+        val polygonY = canvas.height / 2f
+        val polygonRadius = min(canvas.width, canvas.height) * 0.66f
+        val numOfPolygonEdges = 4
+        polygonDrawer.draw(polygonX, polygonY, polygonRadius, numOfPolygonEdges, canvas)
     }
 
     fun populateColorProvider(resources: Resources) {

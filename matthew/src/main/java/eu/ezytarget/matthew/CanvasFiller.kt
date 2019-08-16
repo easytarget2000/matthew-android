@@ -4,7 +4,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import android.graphics.Rect
 
-internal class CanvasFiller(private val paint: Paint = Paint()) {
+class CanvasFiller(private val paint: Paint = Paint()) {
 
     fun fillCanvas(canvas: Canvas, color: Color) {
         paint.color = color
