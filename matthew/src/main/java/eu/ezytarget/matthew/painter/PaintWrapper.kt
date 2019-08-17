@@ -25,15 +25,17 @@ class PaintWrapper(val paint: Paint = Paint()) {
 
 
     fun enableShadows(
-        offsetFactorX: Float = 0f,
-        offsetFactorY: Float = 0f
+        offsetFactorX: Float = DEFAULT_SHADOW_OFFSET_X_FACTOR,
+        offsetFactorY: Float = DEFAULT_SHADOW_OFFSET_Y_FACTOR
     ) {
-        paint.setShadowLayer(
-            shadowRadius,
-            shadowRadius * offsetFactorX,
-            shadowRadius * offsetFactorY,
-            shadowColor
-        )
+        paint.alpha = 255
+        paint.setShadowLayer(12f, 0f, 0f, android.graphics.Color.YELLOW)
+//        paint.setShadowLayer(
+//            shadowRadius,
+//            shadowRadius * offsetFactorX,
+//            shadowRadius * offsetFactorY,
+//            shadowColor
+//        )
     }
 
     fun disableShadows() {
@@ -50,6 +52,8 @@ class PaintWrapper(val paint: Paint = Paint()) {
     }
 
     companion object {
-        const val DEFAULT_SHADOW_COLOR = 0xFF000000.toInt()
+        const val DEFAULT_SHADOW_COLOR = android.graphics.Color.BLACK
+        const val DEFAULT_SHADOW_OFFSET_X_FACTOR = 1f
+        const val DEFAULT_SHADOW_OFFSET_Y_FACTOR = 1f
     }
 }

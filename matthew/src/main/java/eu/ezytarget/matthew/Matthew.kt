@@ -20,7 +20,10 @@ class Matthew() {
     }
 
     fun drawExample(canvas: Canvas) {
+        val imageSize = min(canvas.width, canvas.height).toFloat()
         selectPalettes()
+        configurePaintWrapper(imageSize)
+
         val backgroundColor = colorSource.palette.first()
         fillCanvas(canvas, backgroundColor)
 
@@ -56,8 +59,8 @@ class Matthew() {
         paintWrapper.strokeWidth = imageSize * IMAGE_SIZE_TO_STROKE_WIDTH_RATIO
         paintWrapper.paint.strokeCap = Paint.Cap.BUTT
         paintWrapper.paint.isAntiAlias = USE_ANTI_ALIAS
+        paintWrapper.shadowRadius = imageSize * IMAGE_SIZE_TO_SHADOW_RADIUS_RATIO
         paintWrapper.enableShadows()
-
     }
 
     fun fillCanvas(canvas:Canvas, color: Color) {
@@ -67,6 +70,6 @@ class Matthew() {
     companion object {
         const val USE_ANTI_ALIAS = true
         const val IMAGE_SIZE_TO_STROKE_WIDTH_RATIO = 1f / 25f
-        const val IMAGE_SIZE_TO_SHADOW_RADIUS_RATIO = 1f / 200f
+        const val IMAGE_SIZE_TO_SHADOW_RADIUS_RATIO = 1f / 20f
     }
 }
