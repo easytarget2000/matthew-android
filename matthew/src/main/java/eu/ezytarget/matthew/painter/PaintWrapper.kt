@@ -29,13 +29,13 @@ class PaintWrapper(val paint: Paint = Paint()) {
         offsetFactorY: Float = DEFAULT_SHADOW_OFFSET_Y_FACTOR
     ) {
         paint.alpha = 255
-        paint.setShadowLayer(12f, 0f, 0f, android.graphics.Color.YELLOW)
-//        paint.setShadowLayer(
-//            shadowRadius,
-//            shadowRadius * offsetFactorX,
-//            shadowRadius * offsetFactorY,
-//            shadowColor
-//        )
+//        paint.setShadowLayer(55f, 0f, 0f, android.graphics.Color.BLACK)
+        paint.setShadowLayer(
+            shadowRadius,
+            shadowRadius * offsetFactorX,
+            shadowRadius * offsetFactorY,
+            shadowColor
+        )
     }
 
     fun disableShadows() {

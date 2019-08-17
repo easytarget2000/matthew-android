@@ -19,6 +19,7 @@ class MatthView: View {
         defStyleAttr: Int = 0
     ) : super(context, attrs, defStyleAttr) {
         matthew = Matthew(context.resources)
+        disableHardwareAcceleration()
     }
 
     override fun onDraw(canvas: Canvas?) {
@@ -32,6 +33,10 @@ class MatthView: View {
         }
 
         matthew.drawExample(canvas)
+    }
+
+    fun disableHardwareAcceleration() {
+        setLayerType(LAYER_TYPE_SOFTWARE, matthew.paintWrapper.paint)
     }
 
     companion object {
