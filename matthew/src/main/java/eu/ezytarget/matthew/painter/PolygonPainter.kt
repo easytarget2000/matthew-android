@@ -8,7 +8,7 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 
-class PolygonPainter: Painter() {
+class PolygonPainter(private var paintWrapper: PaintWrapper) {
 
     fun paint(
         centerX: Float,
@@ -29,6 +29,7 @@ class PolygonPainter: Painter() {
         } else {
             numberOfEdges
         }
+
 
         canvas.rotate(degrees, centerX, centerY)
 
@@ -52,7 +53,7 @@ class PolygonPainter: Painter() {
     }
 
     fun paint(path: Path, canvas: Canvas) {
-        canvas.drawPath(path, paint)
+        canvas.drawPath(path, paintWrapper.paint)
     }
 
     companion object {

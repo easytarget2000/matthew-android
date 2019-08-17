@@ -31,7 +31,7 @@ class MatthView: View {
             return
         }
 
-        matthew.drawSeeded(canvas)
+        matthew.drawExample(canvas)
     }
 
     companion object {
