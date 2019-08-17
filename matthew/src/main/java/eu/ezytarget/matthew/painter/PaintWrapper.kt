@@ -29,7 +29,6 @@ class PaintWrapper(val paint: Paint = Paint()) {
         offsetFactorY: Float = DEFAULT_SHADOW_OFFSET_Y_FACTOR
     ) {
         paint.alpha = 255
-//        paint.setShadowLayer(55f, 0f, 0f, android.graphics.Color.BLACK)
         paint.setShadowLayer(
             shadowRadius,
             shadowRadius * offsetFactorX,
@@ -52,8 +51,8 @@ class PaintWrapper(val paint: Paint = Paint()) {
     }
 
     companion object {
-        const val DEFAULT_SHADOW_COLOR = android.graphics.Color.BLACK
-        const val DEFAULT_SHADOW_OFFSET_X_FACTOR = 1f
+        const val DEFAULT_SHADOW_COLOR = 0xA1000000.toInt()
+        const val DEFAULT_SHADOW_OFFSET_X_FACTOR = 2f
         const val DEFAULT_SHADOW_OFFSET_Y_FACTOR = 1f
     }
 }

@@ -70,6 +70,6 @@ class Matthew() {
     companion object {
         const val USE_ANTI_ALIAS = true
         const val IMAGE_SIZE_TO_STROKE_WIDTH_RATIO = 1f / 25f
-        const val IMAGE_SIZE_TO_SHADOW_RADIUS_RATIO = 1f / 20f
+        const val IMAGE_SIZE_TO_SHADOW_RADIUS_RATIO = 1f / 100f
     }
 }
