@@ -28,25 +28,25 @@ class Matthew() {
         val backgroundColor = colorSource.colorAtModuloIndex(0)
         fillCanvas(canvas, backgroundColor)
 
-//        paintWrapper.color = colorSource.palette.last()
-//        val polygonX = canvas.width / 2f
-//        val polygonY = canvas.height / 2f
-//        val polygonRadius = min(canvas.width, canvas.height) * 0.33f
-//        val polygonDegrees = 45f
-//        val numberOfPolygonEdges = 4
-//        polygonPainter.paint(
-//            polygonX,
-//            polygonY,
-//            polygonRadius,
-//            polygonDegrees,
-//            numberOfPolygonEdges,
-//            canvas
-//        )
+        paintWrapper.color = colorSource.palette.last()
+        val polygonX = canvas.width / 2f
+        val polygonY = canvas.height / 2f
+        val polygonRadius = min(canvas.width, canvas.height) * 0.33f
+        val polygonDegrees = 45f
+        val numberOfPolygonEdges = 4
+        polygonPainter.paint(
+            polygonX,
+            polygonY,
+            polygonRadius,
+            polygonDegrees,
+            numberOfPolygonEdges,
+            canvas
+        )
 
         val rectangleWidth = imageSize * 2f
         val rectangleHeight = imageSize / 6f
         val rectangleLeft = -rectangleWidth / 4f
-        val rectangleDegrees = 0f
+        val rectangleDegrees = 45f
 
         for (rectangleCounter in 0 until 3) {
             paintWrapper.color = colorSource.colorAtModuloIndex(rectangleCounter + 1)

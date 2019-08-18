@@ -31,6 +31,7 @@ class PolygonPainter(private var paintWrapper: PaintWrapper) {
         }
 
 
+        canvas.save()
         canvas.rotate(degrees, centerX, centerY)
 
         val polygonPath = Path()
@@ -48,8 +49,8 @@ class PolygonPainter(private var paintWrapper: PaintWrapper) {
         }
 
         polygonPath.close()
-
         paint(polygonPath, canvas)
+        canvas.restore()
     }
 
     fun paint(path: Path, canvas: Canvas) {
