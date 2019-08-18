@@ -5,7 +5,7 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import eu.ezytarget.matthew.painter.PaintWrapper
 import eu.ezytarget.matthew.painter.PolygonPainter
-import kotlin.math.PI
+import eu.ezytarget.matthew.painter.RectanglePainter
 import kotlin.math.min
 
 class Matthew() {
@@ -13,6 +13,7 @@ class Matthew() {
     var colorSource: ColorSource = ColorSource()
     var paintWrapper: PaintWrapper = PaintWrapper()
     var canvasFiller: CanvasFiller = CanvasFiller()
+    var rectanglePainter: RectanglePainter = RectanglePainter(paintWrapper)
     var polygonPainter: PolygonPainter = PolygonPainter(paintWrapper)
 
     constructor(resources: Resources): this() {
@@ -24,24 +25,34 @@ class Matthew() {
         selectPalettes()
         configurePaintWrapper(imageSize)
 
-        val backgroundColor = colorSource.palette.first()
+        val backgroundColor = colorSource.colorAtModuloIndex(0)
         fillCanvas(canvas, backgroundColor)
 
-        paintWrapper.color = colorSource.palette.last()
+//        paintWrapper.color = colorSource.palette.last()
+//        val polygonX = canvas.width / 2f
+//        val polygonY = canvas.height / 2f
+//        val polygonRadius = min(canvas.width, canvas.height) * 0.33f
+//        val polygonDegrees = 45f
+//        val numberOfPolygonEdges = 4
+//        polygonPainter.paint(
+//            polygonX,
+//            polygonY,
+//            polygonRadius,
+//            polygonDegrees,
+//            numberOfPolygonEdges,
+//            canvas
+//        )
 
-        val polygonX = canvas.width / 2f
-        val polygonY = canvas.height / 2f
-        val polygonRadius = min(canvas.width, canvas.height) * 0.33f
-        val polygonDegrees = 45f
-        val numberOfPolygonEdges = 4
-        polygonPainter.paint(
-            polygonX,
-            polygonY,
-            polygonRadius,
-            polygonDegrees,
-            numberOfPolygonEdges,
-            canvas
-        )
+        val rectangleWidth = imageSize * 2f
+        val rectangleHeight = imageSize / 6f
+        val rectangleLeft = -rectangleWidth / 4f
+        val rectangleDegrees = 0f
+
+        for (rectangleCounter in 0 until 3) {
+            paintWrapper.color = colorSource.colorAtModuloIndex(rectangleCounter + 1)
+            val rectangleTop = rectangleCounter * (rectangleHeight / 1f - 8f)
+            rectanglePainter.paint(rectangleLeft, rectangleTop, rectangleWidth, rectangleHeight, rectangleDegrees, canvas)
+        }
     }
 
     fun populateColorProvider(resources: Resources) {
