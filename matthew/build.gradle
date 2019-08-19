@@ -3,11 +3,12 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
+def publishVersionID = '0.0.3'
+
 publish {
 
     def groupProjectID = 'eu.ezytarget.matthew'
     def artifactProjectID = 'matthew-android'
-    def publishVersionID = '0.0.2'
 
     userOrg = 'easytarget'
     repoName = 'easyrep'
@@ -21,16 +22,16 @@ publish {
 
 android {
     compileSdkVersion 28
-    buildToolsVersion "29.0.1"
+    buildToolsVersion '29.0.1'
 
 
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 2
-        versionName "0.0.2"
+        versionCode 3
+        versionName publishVersionID
 
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
     }
 
     buildTypes {
