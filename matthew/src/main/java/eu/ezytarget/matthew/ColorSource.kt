@@ -2,6 +2,7 @@ package eu.ezytarget.matthew
 
 import android.content.res.Resources
 import androidx.annotation.ArrayRes
+import kotlin.math.abs
 
 class ColorSource {
 
@@ -23,6 +24,11 @@ class ColorSource {
             colorList.addAll(palette)
         }
         palette = colorList.toTypedArray()
+    }
+
+    fun colorAtModuloIndex(moduloIndex: Int): Color {
+        val wrappedIndex = abs(moduloIndex) % palette.size
+        return palette[wrappedIndex]
     }
 
     companion object {
