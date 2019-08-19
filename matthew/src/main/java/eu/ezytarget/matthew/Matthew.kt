@@ -28,30 +28,45 @@ class Matthew() {
         val backgroundColor = colorSource.colorAtModuloIndex(0)
         fillCanvas(canvas, backgroundColor)
 
-        paintWrapper.color = colorSource.palette.last()
-        val polygonX = canvas.width / 2f
-        val polygonY = canvas.height / 2f
-        val polygonRadius = min(canvas.width, canvas.height) * 0.33f
-        val polygonDegrees = 45f
-        val numberOfPolygonEdges = 4
-        polygonPainter.paint(
-            polygonX,
-            polygonY,
-            polygonRadius,
-            polygonDegrees,
-            numberOfPolygonEdges,
-            canvas
-        )
+//        paintWrapper.color = colorSource.palette.last()
+//        val polygonX = canvas.width / 2f
+//        val polygonY = canvas.height / 2f
+//        val polygonRadius = min(canvas.width, canvas.height) * 0.33f
+//        val polygonDegrees = 45f
+//        val numberOfPolygonEdges = 4
+//        polygonPainter.paint(
+//            polygonX,
+//            polygonY,
+//            polygonRadius,
+//            polygonDegrees,
+//            numberOfPolygonEdges,
+//            canvas
+//        )
 
+        drawSamplePatternTopStripes(imageSize, canvas)
+    }
+
+    fun drawSamplePatternTopStripes(imageSize: Float, canvas: Canvas) {
         val rectangleWidth = imageSize * 2f
-        val rectangleHeight = imageSize / 6f
+        val rectangleHeight = imageSize / 7f
+        val rectangleTopOffset = -rectangleHeight * 1.5f
+        val rectangleTopIncrement = rectangleHeight * 0.8f
         val rectangleLeft = -rectangleWidth / 4f
-        val rectangleDegrees = 0f
+        val baseRectangleDegrees = 20f
+        val rectangleDegreesIncrement = 2f
+        paintWrapper.color = colorSource.colorAtModuloIndex(4)
 
-        for (rectangleCounter in 3 downTo 0) {
-            paintWrapper.color = colorSource.colorAtModuloIndex(rectangleCounter + 1)
-            val rectangleTop = rectangleCounter * (rectangleHeight * 0.9f)
-            rectanglePainter.paint(rectangleLeft, rectangleTop, rectangleWidth, rectangleHeight, rectangleDegrees, canvas)
+        for (rectangleCounter in 5 downTo 0) {
+            val rectangleTop = rectangleTopOffset + (rectangleCounter * rectangleTopIncrement)
+            val rectangleDegrees = baseRectangleDegrees + (rectangleCounter * rectangleDegreesIncrement)
+            rectanglePainter.paint(
+                rectangleLeft,
+                rectangleTop,
+                rectangleWidth,
+                rectangleHeight,
+                rectangleDegrees,
+                canvas
+            )
         }
     }
 
