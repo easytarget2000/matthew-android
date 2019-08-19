@@ -46,11 +46,11 @@ class Matthew() {
         val rectangleWidth = imageSize * 2f
         val rectangleHeight = imageSize / 6f
         val rectangleLeft = -rectangleWidth / 4f
-        val rectangleDegrees = 45f
+        val rectangleDegrees = 0f
 
-        for (rectangleCounter in 0 until 3) {
+        for (rectangleCounter in 3 downTo 0) {
             paintWrapper.color = colorSource.colorAtModuloIndex(rectangleCounter + 1)
-            val rectangleTop = rectangleCounter * (rectangleHeight / 1f - 8f)
+            val rectangleTop = rectangleCounter * (rectangleHeight * 0.9f)
             rectanglePainter.paint(rectangleLeft, rectangleTop, rectangleWidth, rectangleHeight, rectangleDegrees, canvas)
         }
     }
