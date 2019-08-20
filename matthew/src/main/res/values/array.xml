@@ -65,6 +65,54 @@
         <item>#FF4081</item>
     </array>
 
+    <array name="material_color_green_orange">
+        <item>#388E3C</item>
+        <item>#C8E6C9</item>
+        <item>#4CAF50</item>
+        <item>#FF9800</item>
+    </array>
+
+    <array name="material_color_indigo_cyan">
+        <item>#303F9F</item>
+        <item>#C5CAE9</item>
+        <item>#3F51B5</item>
+        <item>#00BCD4</item>
+    </array>
+
+    <array name="material_color_purple_red">
+        <item>#7B1FA2</item>
+        <item>#E1BEE7</item>
+        <item>#9C27B0</item>
+        <item>#FF5252</item>
+    </array>
+    
+    <array name="material_color_teal_yellow">
+        <item>#00796B</item>
+        <item>#B2DFDB</item>
+        <item>#009688</item>
+        <item>#FFEB3B</item>
+    </array>
+
+    <array name="material_color_deep_orange_deep_purple">
+        <item>#E64A19</item>
+        <item>#FFCCBC</item>
+        <item>#FF5722</item>
+        <item>#7C4DFF</item>
+    </array>
+
+    <array name="material_color_blue_grey_blue">
+        <item>#455A64</item>
+        <item>#CFD8DC</item>
+        <item>#607D8B</item>
+        <item>#448AFF</item>
+    </array>
+
+    <array name="material_color_cyan_light_green">
+        <item>#0097A7</item>
+        <item>#B2EBF2</item>
+        <item>#00BCD4</item>
+        <item>#8BC34A</item>
+    </array>
 
     <!-- Array of arrays (array IDs): -->
 
@@ -78,6 +126,13 @@
         <item>@array/material_color_grey_deep_purple</item>
         <item>@array/material_color_blue_light_blue</item>
         <item>@array/material_color_light_green_pink</item>
+        <item>@array/material_color_green_orange</item>
+        <item>@array/material_color_indigo_cyan</item>
+        <item>@array/material_color_purple_red</item>
+        <item>@array/material_color_teal_yellow</item>
+        <item>@array/material_color_deep_orange_deep_purple</item>
+        <item>@array/material_color_blue_grey_blue</item>
+        <item>@array/material_color_cyan_light_green</item>
     </array>
 
 </resources>
