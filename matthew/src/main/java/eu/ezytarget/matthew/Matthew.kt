@@ -3,82 +3,25 @@ package eu.ezytarget.matthew
 import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Paint
-import eu.ezytarget.matthew.painter.PaintWrapper
-import eu.ezytarget.matthew.painter.PolygonPainter
-import eu.ezytarget.matthew.painter.RectanglePainter
+import eu.ezytarget.matthew.painter.*
 import kotlin.math.min
 
 class Matthew() {
 
     var colorSource: ColorSource = ColorSource()
     var paintWrapper: PaintWrapper = PaintWrapper()
-    var canvasFiller: CanvasFiller = CanvasFiller()
+    var canvasFiller: CanvasFiller = CanvasFiller(paintWrapper)
     var rectanglePainter: RectanglePainter = RectanglePainter(paintWrapper)
     var polygonPainter: PolygonPainter = PolygonPainter(paintWrapper)
+    var circlePainter: CirclePainter = CirclePainter(paintWrapper)
+    val paint: Paint get() = paintWrapper.paint
 
-    constructor(resources: Resources): this() {
+    constructor(resources: Resources) : this() {
         populateColorProvider(resources)
-    }
-
-    fun drawExample(canvas: Canvas) {
-        val imageSize = min(canvas.width, canvas.height).toFloat()
-        selectPalettes()
-        configurePaintWrapper(imageSize)
-
-        val backgroundColor = colorSource.colorAtModuloIndex(0)
-        fillCanvas(canvas, backgroundColor)
-
-//        paintWrapper.color = colorSource.palette.last()
-//        val polygonX = canvas.width / 2f
-//        val polygonY = canvas.height / 2f
-//        val polygonRadius = min(canvas.width, canvas.height) * 0.33f
-//        val polygonDegrees = 45f
-//        val numberOfPolygonEdges = 4
-//        polygonPainter.paint(
-//            polygonX,
-//            polygonY,
-//            polygonRadius,
-//            polygonDegrees,
-//            numberOfPolygonEdges,
-//            canvas
-//        )
-
-        drawSamplePatternTopStripes(imageSize, canvas)
-    }
-
-    fun drawSamplePatternTopStripes(imageSize: Float, canvas: Canvas) {
-        val rectangleWidth = imageSize * 2f
-        val rectangleHeight = imageSize / 7f
-        val rectangleTopOffset = -rectangleHeight * 1.5f
-        val rectangleTopIncrement = rectangleHeight * 0.8f
-        val rectangleLeft = -rectangleWidth / 4f
-        val baseRectangleDegrees = 20f
-        val rectangleDegreesIncrement = 2f
-        paintWrapper.color = colorSource.colorAtModuloIndex(4)
-
-        for (rectangleCounter in 5 downTo 0) {
-            val rectangleTop = rectangleTopOffset + (rectangleCounter * rectangleTopIncrement)
-            val rectangleDegrees = baseRectangleDegrees + (rectangleCounter * rectangleDegreesIncrement)
-            rectanglePainter.paint(
-                rectangleLeft,
-                rectangleTop,
-                rectangleWidth,
-                rectangleHeight,
-                rectangleDegrees,
-                canvas
-            )
-        }
     }
 
     fun populateColorProvider(resources: Resources) {
         colorSource.populate(resources)
-    }
-
-    fun selectPalettes() {
-        val availablePalettes = colorSource.availablePalettes
-        val firstPalette = availablePalettes.first()
-        val lastPalette = availablePalettes.last()
-        colorSource.selectAndCombinePalettes(firstPalette, lastPalette)
     }
 
     fun configurePaintWrapper(imageSize: Float) {
@@ -89,8 +32,33 @@ class Matthew() {
         paintWrapper.enableShadows()
     }
 
-    fun fillCanvas(canvas:Canvas, color: Color) {
-        canvasFiller.fillCanvas(canvas, color)
+    fun colorAtModuloIndex(moduloIndex: Int): Color {
+        return colorSource.colorAtModuloIndex(moduloIndex)
+    }
+
+    fun fillCanvas(canvas: Canvas, color: Color) {
+        paintWrapper.color = color
+        canvasFiller.fillCanvas(canvas)
+    }
+
+    fun paintRectangle(
+        left: Float,
+        top: Float,
+        width: Float,
+        height: Float,
+        degrees: Float = 0f,
+        color: Color,
+        canvas: Canvas
+    ) {
+        paintWrapper.color = color
+        rectanglePainter.paint(
+            left,
+            top,
+            width,
+            height,
+            degrees,
+            canvas
+        )
     }
 
     companion object {

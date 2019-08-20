@@ -8,7 +8,7 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 
-class PolygonPainter(private var paintWrapper: PaintWrapper) {
+class PolygonPainter(paintWrapper: PaintWrapper): Painter(paintWrapper) {
 
     fun paint(
         centerX: Float,
@@ -54,6 +54,7 @@ class PolygonPainter(private var paintWrapper: PaintWrapper) {
     }
 
     fun paint(path: Path, canvas: Canvas) {
+        setFillStyle()
         canvas.drawPath(path, paintWrapper.paint)
     }
 

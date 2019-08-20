@@ -6,11 +6,12 @@ import android.util.AttributeSet
 import android.util.Log
 import android.view.View
 import eu.ezytarget.matthew.BuildConfig
+import eu.ezytarget.matthew.ExemplaryMatthew
 import eu.ezytarget.matthew.Matthew
 
 class MatthView: View {
 
-    var matthew: Matthew
+    var exemplaryMatthew: ExemplaryMatthew
     var verbose = BuildConfig.DEBUG
 
     @JvmOverloads constructor(
@@ -18,7 +19,7 @@ class MatthView: View {
         attrs: AttributeSet? = null,
         defStyleAttr: Int = 0
     ) : super(context, attrs, defStyleAttr) {
-        matthew = Matthew(context.resources)
+        exemplaryMatthew = ExemplaryMatthew(context.resources)
         disableHardwareAcceleration()
     }
 
@@ -32,11 +33,11 @@ class MatthView: View {
             return
         }
 
-        matthew.drawExample(canvas)
+        exemplaryMatthew.drawSamplePatternTopStripes(canvas)
     }
 
     fun disableHardwareAcceleration() {
-        setLayerType(LAYER_TYPE_SOFTWARE, matthew.paintWrapper.paint)
+        setLayerType(LAYER_TYPE_SOFTWARE, exemplaryMatthew.paint)
     }
 
     companion object {
