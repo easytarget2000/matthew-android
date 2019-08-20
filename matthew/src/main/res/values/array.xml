@@ -16,11 +16,68 @@
         <item>#CDDC39</item>
     </array>
 
+    <array name="material_color_palette_red_green">
+        <item>#D32F2F</item>
+        <item>#FFCDD2</item>
+        <item>#F44336</item>
+        <item>#4CAF50</item>
+    </array>
+
+    <array name="material_color_palette_blue_amber">
+        <item>#1976D2</item>
+        <item>#BBDEFB</item>
+        <item>#2196F3</item>
+        <item>#FFC107</item>
+    </array>
+
+    <array name="material_color_palette_purple_lime">
+        <item>#7B1FA2</item>
+        <item>#E1BEE7</item>
+        <item>#9C27B0</item>
+        <item>#CDDC39</item>
+    </array>
+
+    <array name="material_color_palette_blue_grey_cyan">
+        <item>#455A64</item>
+        <item>#CFD8DC</item>
+        <item>#607D8B</item>
+        <item>#00BCD4</item>
+    </array>
+    
+    <array name="material_color_grey_deep_purple">
+        <item>#616161</item>
+        <item>#F5F5F5</item>
+        <item>#9E9E9E</item>
+        <item>#7C4DFF</item>
+    </array>
+
+    <array name="material_color_blue_light_blue">
+        <item>#1976D2</item>
+        <item>#BBDEFB</item>
+        <item>#2196F3</item>
+        <item>#03A9F4</item>
+    </array>
+
+    <array name="material_color_light_green_pink">
+        <item>#689F38</item>
+        <item>#DCEDC8</item>
+        <item>#8BC34A</item>
+        <item>#FF4081</item>
+    </array>
+
+
     <!-- Array of arrays (array IDs): -->
 
     <array name="material_color_palettes">
         <item>@array/material_color_palette_1</item>
         <item>@array/material_color_palette_2</item>
+        <item>@array/material_color_palette_red_green</item>
+        <item>@array/material_color_palette_blue_amber</item>
+        <item>@array/material_color_palette_purple_lime</item>
+        <item>@array/material_color_palette_blue_grey_cyan</item>
+        <item>@array/material_color_grey_deep_purple</item>
+        <item>@array/material_color_blue_light_blue</item>
+        <item>@array/material_color_light_green_pink</item>
     </array>
 
 </resources>
