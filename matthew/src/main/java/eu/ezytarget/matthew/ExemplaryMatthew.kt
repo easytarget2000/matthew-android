@@ -5,14 +5,16 @@ import android.graphics.Canvas
 import android.graphics.Paint
 import kotlin.math.min
 
-class ExemplaryMatthew(resources: Resources) {
+class ExemplaryMatthew(
+    resources: Resources,
+    val canvasSizeQuantifier: CanvasSizeQuantifier = CanvasSizeQuantifier()
+) {
 
     private val matthew: Matthew = Matthew(resources)
-
     val paint: Paint get() = matthew.paint
 
     fun drawSamplePatternTopStripes(canvas: Canvas) {
-        val imageSize = min(canvas.width, canvas.height).toFloat()
+        val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
         setupMatthew(imageSize)
 
         val backgroundColor = matthew.colorAtModuloIndex(0)
@@ -42,15 +44,13 @@ class ExemplaryMatthew(resources: Resources) {
         }
     }
 
-    private fun setupMatthew(imageSize: Float) {
-        selectPalettes()
-        matthew.configurePaintWrapper(imageSize)
+    fun drawSampleDiskPattern(canvas: Canvas) {
+        val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
+        setupMatthew(imageSize)
     }
 
-    private fun selectPalettes() {
-        val availablePalettes = matthew.colorSource.availablePalettes
-        val firstPalette = availablePalettes.first()
-        val lastPalette = availablePalettes.last()
-        matthew.colorSource.selectAndCombinePalettes(firstPalette, lastPalette)
+    private fun setupMatthew(imageSize: Float) {
+        matthew.configurePaintWrapper(imageSize)
+        matthew.selectRandomPalettes()
     }
 }

@@ -4,6 +4,7 @@ import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Paint
 import eu.ezytarget.matthew.painter.*
+import kotlin.random.Random
 
 class Matthew() {
 
@@ -13,6 +14,7 @@ class Matthew() {
     var rectangularPainter: RectangularPainter = RectangularPainter(paintWrapper)
     var polygonalPainter: PolygonalPainter = PolygonalPainter(paintWrapper)
     var circularPainter: CircularPainter = CircularPainter(paintWrapper)
+    var canvasSizeQuantifier: CanvasSizeQuantifier = CanvasSizeQuantifier()
     val paint: Paint get() = paintWrapper.paint
 
     constructor(resources: Resources) : this() {
@@ -23,12 +25,24 @@ class Matthew() {
         colorSource.populate(resources)
     }
 
-    fun configurePaintWrapper(imageSize: Float) {
-        paintWrapper.strokeWidth = imageSize * IMAGE_SIZE_TO_STROKE_WIDTH_RATIO
+    fun configurePaintWrapper(canvas: Canvas) {
+        val quantifiedImageSize = canvasSizeQuantifier.valueForCanvas(canvas)
+        configurePaintWrapper(quantifiedImageSize)
+    }
+
+    fun configurePaintWrapper(quantifiedImageSize: Float) {
+        paintWrapper.strokeWidth = quantifiedImageSize * IMAGE_SIZE_TO_STROKE_WIDTH_RATIO
         paintWrapper.paint.strokeCap = Paint.Cap.BUTT
         paintWrapper.paint.isAntiAlias = USE_ANTI_ALIAS
-        paintWrapper.shadowRadius = imageSize * IMAGE_SIZE_TO_SHADOW_RADIUS_RATIO
+        paintWrapper.shadowRadius = quantifiedImageSize * IMAGE_SIZE_TO_SHADOW_RADIUS_RATIO
         paintWrapper.enableShadows()
+    }
+
+    fun selectRandomPalettes(random: Random = Random(System.currentTimeMillis())) {
+        val availablePalettes = colorSource.availablePalettes
+        val palette1 = availablePalettes[random.nextInt() % availablePalettes.size]
+        val palette2 = availablePalettes[random.nextInt() % availablePalettes.size]
+        colorSource.selectAndCombinePalettes(palette1, palette2)
     }
 
     fun colorAtModuloIndex(moduloIndex: Int): Color {
