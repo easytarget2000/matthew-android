@@ -74,6 +74,50 @@ class Matthew() {
         )
     }
 
+    fun paintCircularShapeFromEdgeWithDiameter(
+        top: Float,
+        left: Float,
+        diameter: Float,
+        color: Color,
+        canvas: Canvas
+    ) {
+        paintWrapper.color = color
+        circularPainter.paintFromEdgeWithDiameter(top, left, diameter, canvas)
+    }
+
+    fun paintCircularShapeFromEdgeWithRadius(
+        top: Float,
+        left: Float,
+        radius: Float,
+        color: Color,
+        canvas: Canvas
+    ) {
+        paintWrapper.color = color
+        circularPainter.paintFromEdgeWithRadius(top, left, radius, canvas)
+    }
+
+    fun paintCircularShapeWithDiameter(
+        centerX: Float,
+        centerY: Float,
+        diameter: Float,
+        color: Color,
+        canvas: Canvas
+    ) {
+        paintWrapper.color = color
+        circularPainter.paintWithDiameter(centerX, centerY, diameter, canvas)
+    }
+
+    fun paintCircularShapeWithRadius(
+        centerX: Float,
+        centerY: Float,
+        radius: Float,
+        color: Color,
+        canvas: Canvas
+    ) {
+        paintWrapper.color = color
+        circularPainter.paintWithRadius(centerX, centerY, radius, canvas)
+    }
+
     companion object {
         const val USE_ANTI_ALIAS = true
         const val IMAGE_SIZE_TO_STROKE_WIDTH_RATIO = 1f / 25f
