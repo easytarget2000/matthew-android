@@ -40,8 +40,9 @@ class Matthew() {
 
     fun selectRandomPalettes(random: Random = Random(System.currentTimeMillis())) {
         val availablePalettes = colorSource.availablePalettes
-        val palette1 = availablePalettes[random.nextInt() % availablePalettes.size]
-        val palette2 = availablePalettes[random.nextInt() % availablePalettes.size]
+        val maxPaletteIndex = availablePalettes.size - 1
+        val palette1 = availablePalettes[random.nextInt(until = maxPaletteIndex)]
+        val palette2 = availablePalettes[random.nextInt(until = maxPaletteIndex)]
         colorSource.selectAndCombinePalettes(palette1, palette2)
     }
 
