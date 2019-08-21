@@ -4,7 +4,6 @@ import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Paint
 import eu.ezytarget.matthew.painter.*
-import kotlin.math.min
 
 class Matthew() {
 
@@ -13,7 +12,7 @@ class Matthew() {
     var canvasFiller: CanvasFiller = CanvasFiller(paintWrapper)
     var rectanglePainter: RectanglePainter = RectanglePainter(paintWrapper)
     var polygonPainter: PolygonPainter = PolygonPainter(paintWrapper)
-    var circlePainter: CirclePainter = CirclePainter(paintWrapper)
+    var circularDiskPainter: CircularDiskPainter = CircularDiskPainter(paintWrapper)
     val paint: Paint get() = paintWrapper.paint
 
     constructor(resources: Resources) : this() {
