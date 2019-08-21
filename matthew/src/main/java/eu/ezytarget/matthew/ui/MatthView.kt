@@ -34,7 +34,7 @@ class MatthView: View {
         }
 
         exemplaryMatthew.paintSampleDiskPattern(canvas)
-        exemplaryMatthew.drawSamplePatternTopStripes(canvas)
+        exemplaryMatthew.paintSamplePatternTopStripes(canvas)
     }
 
     fun disableHardwareAcceleration() {

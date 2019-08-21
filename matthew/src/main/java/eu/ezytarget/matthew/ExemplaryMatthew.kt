@@ -13,7 +13,7 @@ class ExemplaryMatthew(
     private val matthew: Matthew = Matthew(resources)
     val paint: Paint get() = matthew.paint
 
-    fun drawSamplePatternTopStripes(canvas: Canvas) {
+    fun paintSamplePatternTopStripes(canvas: Canvas) {
         val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
         setupMatthew(imageSize)
 
