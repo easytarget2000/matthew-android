@@ -9,7 +9,7 @@ import eu.ezytarget.matthew.BuildConfig
 import eu.ezytarget.matthew.ExemplaryMatthew
 import eu.ezytarget.matthew.Matthew
 
-class MatthView: View {
+class ExemplaryMatthView: View {
 
     var exemplaryMatthew: ExemplaryMatthew
     var verbose = BuildConfig.DEBUG
@@ -26,7 +26,7 @@ class MatthView: View {
     override fun onDraw(canvas: Canvas?) {
         super.onDraw(canvas)
         if (verbose) {
-            Log.d(MatthView.tag, "onDraw(): canvas: $canvas")
+            Log.d(ExemplaryMatthView.tag, "onDraw(): canvas: $canvas")
         }
 
         if (canvas == null) {
