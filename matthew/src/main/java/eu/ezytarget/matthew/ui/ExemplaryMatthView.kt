@@ -33,6 +33,7 @@ class ExemplaryMatthView: View {
             return
         }
 
+        exemplaryMatthew.setupAndDrawBackground(canvas)
         exemplaryMatthew.paintSampleDiskPattern(canvas)
         exemplaryMatthew.paintSamplePatternTopStripes(canvas)
     }

@@ -7,18 +7,21 @@ import kotlin.math.min
 
 class ExemplaryMatthew(
     resources: Resources,
-    val canvasSizeQuantifier: CanvasSizeQuantifier = CanvasSizeQuantifier()
+    private val canvasSizeQuantifier: CanvasSizeQuantifier = CanvasSizeQuantifier()
 ) {
 
     private val matthew: Matthew = Matthew(resources)
     val paint: Paint get() = matthew.paint
 
-    fun paintSamplePatternTopStripes(canvas: Canvas) {
-        val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
-        setupMatthew(imageSize)
-
+    fun setupAndDrawBackground(canvas: Canvas) {
+        matthew.configurePaintWrapper(canvas)
+        matthew.selectRandomPalettes()
         val backgroundColor = matthew.colorAtModuloIndex(0)
         matthew.fillCanvas(canvas, backgroundColor)
+    }
+
+    fun paintSamplePatternTopStripes(canvas: Canvas) {
+        val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
 
         val rectangleWidth = imageSize * 2f
         val rectangleHeight = imageSize / 7f
@@ -46,7 +49,6 @@ class ExemplaryMatthew(
 
     fun paintSampleDiskPattern(canvas: Canvas) {
         val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
-        setupMatthew(imageSize)
 
         val firstStackMinRadius = imageSize / 7f
         val firstStackCenterX = imageSize / 3f
@@ -65,8 +67,4 @@ class ExemplaryMatthew(
         }
     }
 
-    private fun setupMatthew(imageSize: Float) {
-        matthew.configurePaintWrapper(imageSize)
-        matthew.selectRandomPalettes()
-    }
 }
