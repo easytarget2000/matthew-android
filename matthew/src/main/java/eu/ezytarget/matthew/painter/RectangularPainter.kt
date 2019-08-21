@@ -2,7 +2,7 @@ package eu.ezytarget.matthew.painter
 
 import android.graphics.Canvas
 
-class RectanglePainter(paintWrapper: PaintWrapper): Painter(paintWrapper) {
+class RectangularPainter(paintWrapper: PaintWrapper): Painter(paintWrapper) {
 
     fun paint(left: Float, top: Float, width: Float, height: Float, degrees: Float = 0f, canvas: Canvas) {
         canvas.save()

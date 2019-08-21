@@ -8,7 +8,7 @@ import kotlin.math.cos
 import kotlin.math.sin
 
 
-class PolygonPainter(paintWrapper: PaintWrapper): Painter(paintWrapper) {
+class PolygonalPainter(paintWrapper: PaintWrapper): Painter(paintWrapper) {
 
     fun paint(
         centerX: Float,
@@ -62,6 +62,6 @@ class PolygonPainter(paintWrapper: PaintWrapper): Painter(paintWrapper) {
         const val MIN_NUM_OF_VERTICES = 3
         const val MAX_NUM_OF_VERTICES = 16
         private const val TWO_PI = 2f * PI.toFloat()
-        val tag = PolygonPainter::class.java.simpleName
+        val tag = PolygonalPainter::class.java.simpleName
     }
 }

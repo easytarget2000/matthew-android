@@ -10,9 +10,9 @@ class Matthew() {
     var colorSource: ColorSource = ColorSource()
     var paintWrapper: PaintWrapper = PaintWrapper()
     var canvasFiller: CanvasFiller = CanvasFiller(paintWrapper)
-    var rectanglePainter: RectanglePainter = RectanglePainter(paintWrapper)
-    var polygonPainter: PolygonPainter = PolygonPainter(paintWrapper)
-    var circularDiskPainter: CircularDiskPainter = CircularDiskPainter(paintWrapper)
+    var rectangularPainter: RectangularPainter = RectangularPainter(paintWrapper)
+    var polygonalPainter: PolygonalPainter = PolygonalPainter(paintWrapper)
+    var circularPainter: CircularPainter = CircularPainter(paintWrapper)
     val paint: Paint get() = paintWrapper.paint
 
     constructor(resources: Resources) : this() {
@@ -50,7 +50,7 @@ class Matthew() {
         canvas: Canvas
     ) {
         paintWrapper.color = color
-        rectanglePainter.paint(
+        rectangularPainter.paint(
             left,
             top,
             width,
