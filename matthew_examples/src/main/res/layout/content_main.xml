@@ -9,7 +9,7 @@
         tools:showIn="@layout/activity_main"
         tools:context=".MainActivity">
 
-    <eu.ezytarget.matthew.ui.MatthView
+    <eu.ezytarget.matthew.ui.ExemplaryMatthView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello World!"
