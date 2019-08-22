@@ -1,0 +1,23 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="matthew-android:matthew [clean build bintrayUpload]" type="GradleRunConfiguration" factoryName="Gradle" singleton="false">
+    <ExternalSystemSettings>
+      <option name="executionName" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/matthew" />
+      <option name="externalSystemIdString" value="GRADLE" />
+      <option name="scriptParameters" value="--project-prop bintrayUser=easyTarget --project-prop bintrayKey=341eb9df218e56ee8e6fef6063e14e241af830f7 --project-prop dryRun=false" />
+      <option name="taskDescriptions">
+        <list />
+      </option>
+      <option name="taskNames">
+        <list>
+          <option value="clean" />
+          <option value="build" />
+          <option value="bintrayUpload" />
+        </list>
+      </option>
+      <option name="vmOptions" value="" />
+    </ExternalSystemSettings>
+    <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
+    <method v="2" />
+  </configuration>
+</component>
