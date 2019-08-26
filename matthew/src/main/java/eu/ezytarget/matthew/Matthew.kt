@@ -31,24 +31,25 @@ class Matthew() {
         height: Int,
         bitmapConfig: Bitmap.Config = Bitmap.Config.ARGB_8888,
         random: Random = Random(System.currentTimeMillis())
-    ): Canvas {
-        val canvas = canvasBackedByBitmap(width, height, bitmapConfig)
-        configurePaintWrapper(canvas)
+    ): BitmapBackedCanvas{
+        val bitmapBackedCanvas = canvasBackedByBitmap(width, height, bitmapConfig)
+        configurePaintWrapper(bitmapBackedCanvas.canvas)
         selectRandomPalettes(random)
-        return canvas
+        return bitmapBackedCanvas
     }
 
     fun canvasBackedByBitmap(
         width: Int,
         height: Int,
         bitmapConfig: Bitmap.Config = Bitmap.Config.ARGB_8888
-    ): Canvas {
+    ): BitmapBackedCanvas {
         val bitmap = Bitmap.createBitmap(width, height, bitmapConfig)
         return canvasBackedByBitmap(bitmap)
     }
 
-    fun canvasBackedByBitmap(bitmap: Bitmap): Canvas {
-        return Canvas(bitmap)
+    fun canvasBackedByBitmap(bitmap: Bitmap): BitmapBackedCanvas {
+        val canvas = Canvas(bitmap)
+        return BitmapBackedCanvas(canvas, bitmap)
     }
 
     fun configurePaintWrapper(canvas: Canvas) {
