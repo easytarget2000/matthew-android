@@ -20,7 +20,7 @@ class ExemplaryMatthew(
         matthew.fillCanvas(canvas, backgroundColor)
     }
 
-    fun paintSamplePatternTopStripes(canvas: Canvas) {
+    fun paintDiagonalTopStripes(canvas: Canvas) {
         val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
 
         val rectangleWidth = imageSize * 2f
@@ -47,7 +47,7 @@ class ExemplaryMatthew(
         }
     }
 
-    fun paintSampleDiskPattern(canvas: Canvas) {
+    fun paintSimpleDiskPattern(canvas: Canvas) {
         val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
 
         val firstStackMinRadius = imageSize / 7f
@@ -56,6 +56,26 @@ class ExemplaryMatthew(
 
         val color = matthew.colorAtModuloIndex(3)
         for (diskCounter in 5 downTo 0) {
+            val radius = firstStackMinRadius * diskCounter.toFloat()
+            matthew.paintCircularShapeWithRadius(
+                firstStackCenterX,
+                firstStackCenterY,
+                radius,
+                color,
+                canvas
+            )
+        }
+    }
+
+    fun paintTightDiskPattern(canvas: Canvas) {
+        val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
+
+        val firstStackMinRadius = imageSize / 32f
+        val firstStackCenterX = imageSize / 3f
+        val firstStackCenterY = imageSize * 0.67f
+
+        for (diskCounter in 48 downTo 0) {
+            val color = matthew.colorAtModuloIndex(diskCounter)
             val radius = firstStackMinRadius * diskCounter.toFloat()
             matthew.paintCircularShapeWithRadius(
                 firstStackCenterX,

@@ -34,8 +34,7 @@ class ExemplaryMatthView: View {
         }
 
         exemplaryMatthew.setupAndDrawBackground(canvas)
-        exemplaryMatthew.paintSampleDiskPattern(canvas)
-        exemplaryMatthew.paintSamplePatternTopStripes(canvas)
+        exemplaryMatthew.paintTightDiskPattern(canvas)
     }
 
     fun disableHardwareAcceleration() {
