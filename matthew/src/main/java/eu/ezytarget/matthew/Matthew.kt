@@ -1,6 +1,7 @@
 package eu.ezytarget.matthew
 
 import android.content.res.Resources
+import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Paint
 import eu.ezytarget.matthew.painter.*
@@ -23,6 +24,31 @@ class Matthew() {
 
     fun populateColorProvider(resources: Resources) {
         colorSource.populate(resources)
+    }
+
+    fun configuredCanvasBackedByBitmap(
+        width: Int,
+        height: Int,
+        bitmapConfig: Bitmap.Config = Bitmap.Config.ARGB_8888,
+        random: Random = Random(System.currentTimeMillis())
+    ): Canvas {
+        val canvas = canvasBackedByBitmap(width, height, bitmapConfig)
+        configurePaintWrapper(canvas)
+        selectRandomPalettes(random)
+        return canvas
+    }
+
+    fun canvasBackedByBitmap(
+        width: Int,
+        height: Int,
+        bitmapConfig: Bitmap.Config = Bitmap.Config.ARGB_8888
+    ): Canvas {
+        val bitmap = Bitmap.createBitmap(width, height, bitmapConfig)
+        return canvasBackedByBitmap(bitmap)
+    }
+
+    fun canvasBackedByBitmap(bitmap: Bitmap): Canvas {
+        return Canvas(bitmap)
     }
 
     fun configurePaintWrapper(canvas: Canvas) {
