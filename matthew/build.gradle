@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
-def publishVersionID = '0.1.4'
+def publishVersionID = '0.1.5'
 
 publish {
 
@@ -21,14 +21,14 @@ publish {
 }
 
 android {
-    compileSdkVersion 28
-    buildToolsVersion '29.0.1'
+    compileSdkVersion 29
+    buildToolsVersion '29.0.2'
 
 
     defaultConfig {
         minSdkVersion 19
         targetSdkVersion 28
-        versionCode 4
+        versionCode 5
         versionName publishVersionID
 
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
