@@ -1,4 +1,4 @@
-package eu.ezytarget.micopi
+package eu.ezytarget.matthew
 
 import eu.ezytarget.matthew.util.Calculator
 import org.junit.Test
