@@ -3,6 +3,7 @@ package eu.ezytarget.matthew
 import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Paint
+import eu.ezytarget.matthew.pattern.TwirlyDisksMatthewPattern
 import kotlin.math.min
 
 class ExemplaryMatthew(
@@ -11,6 +12,7 @@ class ExemplaryMatthew(
 ) {
 
     private val matthew: Matthew = Matthew(resources)
+    var twirlyDisksMatthewPattern: TwirlyDisksMatthewPattern = TwirlyDisksMatthewPattern()
     val paint: Paint get() = matthew.paint
 
     fun setupAndDrawBackground(canvas: Canvas) {
@@ -67,4 +69,8 @@ class ExemplaryMatthew(
         }
     }
 
+    fun paintTwirlyDisksPattern(canvas: Canvas) {
+        twirlyDisksMatthewPattern.configureRandomly()
+        twirlyDisksMatthewPattern.paint(matthew, canvas)
+    }
 }

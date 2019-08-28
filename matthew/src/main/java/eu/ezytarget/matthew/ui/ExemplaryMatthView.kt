@@ -8,6 +8,7 @@ import android.view.View
 import eu.ezytarget.matthew.BuildConfig
 import eu.ezytarget.matthew.ExemplaryMatthew
 import eu.ezytarget.matthew.Matthew
+import eu.ezytarget.matthew.pattern.TwirlyDisksMatthewPattern
 
 class ExemplaryMatthView: View {
 
@@ -34,7 +35,7 @@ class ExemplaryMatthView: View {
         }
 
         exemplaryMatthew.setupAndDrawBackground(canvas)
-        exemplaryMatthew.paintTightDiskPattern(canvas)
+        exemplaryMatthew.paintTwirlyDisksPattern(canvas)
     }
 
     fun disableHardwareAcceleration() {
