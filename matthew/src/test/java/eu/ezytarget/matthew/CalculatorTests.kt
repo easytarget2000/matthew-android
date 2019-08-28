@@ -1,7 +1,6 @@
 package eu.ezytarget.micopi
 
 import eu.ezytarget.matthew.util.Calculator
-import eu.ezytarget.micopi.common.engine.Calculator
 import org.junit.Test
 
 class CalculatorTests {
