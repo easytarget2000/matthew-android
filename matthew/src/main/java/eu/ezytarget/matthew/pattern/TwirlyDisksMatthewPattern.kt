@@ -7,7 +7,6 @@ import eu.ezytarget.matthew.Color
 import eu.ezytarget.matthew.Matthew
 import eu.ezytarget.matthew.util.Calculator
 import eu.ezytarget.matthew.util.RandomNumberGenerator
-import eu.ezytarget.micopi.common.RandomNumberGenerator
 
 class TwirlyDisksMatthewPattern(
     private val canvasSizeQuantifier: CanvasSizeQuantifier = CanvasSizeQuantifier(),
