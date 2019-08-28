@@ -12,7 +12,6 @@ class TwirlyDisksMatthewPattern(
     private val canvasSizeQuantifier: CanvasSizeQuantifier = CanvasSizeQuantifier(),
     private val calculator: Calculator = Calculator()
 ) {
-
     var randomNumberGenerator: RandomNumberGenerator = RandomNumberGenerator()
     var numberOfDisks = 48
     var lastDiskToImageRatio = 1f / 54f
@@ -80,7 +79,7 @@ class TwirlyDisksMatthewPattern(
         }
     }
 
-    internal fun paintDisk(
+    fun paintDisk(
         diskCounter: Int,
         firstDiskRadius: Float,
         lastDiskRadius: Float,
