@@ -67,24 +67,4 @@ class ExemplaryMatthew(
         }
     }
 
-    fun paintTightDiskPattern(canvas: Canvas) {
-        val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
-
-        val firstStackMinRadius = imageSize / 32f
-        val firstStackCenterX = imageSize / 3f
-        val firstStackCenterY = imageSize * 0.67f
-
-        for (diskCounter in 48 downTo 0) {
-            val color = matthew.colorAtModuloIndex(diskCounter)
-            val radius = firstStackMinRadius * diskCounter.toFloat()
-            matthew.paintCircularShapeWithRadius(
-                firstStackCenterX,
-                firstStackCenterY,
-                radius,
-                color,
-                canvas
-            )
-        }
-    }
-
 }
