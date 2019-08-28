@@ -66,43 +66,67 @@ class TwirlyDisksMatthewPattern(
         val twirlRadius = imageSize * twirlRadiusToImageRatio
 
         for (diskCounter in 0..numberOfDisks) {
-            val diskColor: Color = if (oneColor == null) {
-                val colorIndex = if (repeatColors) {
-                    diskCounter
-                } else {
-                    randomNumberGenerator.int()
-                }
-                matthew.colorAtModuloIndex(colorIndex)
-            } else {
-                oneColor
-            }
-
-            val radius = calculator.lerp(
+            paintDisk(
+                diskCounter,
                 firstDiskRadius,
                 lastDiskRadius,
-                diskCounter,
-                numberOfDisks
-            )
-            val normalizedCounter = diskCounter.toFloat() / numberOfDisks.toFloat()
-            val twirlXOffset = calculator.pointOnCircleX(
-                arcRelativePosition = twirlXRatio * normalizedCounter,
-                radius = twirlRadius
-            )
-            val twirlYOffset = calculator.pointOnCircleY(
-                arcRelativePosition = twirlYRatio * normalizedCounter,
-                radius = twirlRadius
-            )
-            val diskX = stackCenterX + twirlXOffset
-            val diskY = stackCenterY + twirlYOffset
-
-            matthew.paintCircularShapeWithRadius(
-                diskX,
-                diskY,
-                radius,
-                diskColor,
+                twirlRadius,
+                stackCenterX,
+                stackCenterY,
+                oneColor,
+                matthew,
                 canvas
             )
         }
+    }
+
+    internal fun paintDisk(
+        diskCounter: Int,
+        firstDiskRadius: Float,
+        lastDiskRadius: Float,
+        twirlRadius: Float,
+        stackCenterX: Float,
+        stackCenterY: Float,
+        oneColor: Color?,
+        matthew: Matthew,
+        canvas: Canvas
+    ) {
+        val diskColor: Color = if (oneColor == null) {
+            val colorIndex = if (repeatColors) {
+                diskCounter
+            } else {
+                randomNumberGenerator.int()
+            }
+            matthew.colorAtModuloIndex(colorIndex)
+        } else {
+            oneColor
+        }
+
+        val radius = calculator.lerp(
+            firstDiskRadius,
+            lastDiskRadius,
+            diskCounter,
+            numberOfDisks
+        )
+        val normalizedCounter = diskCounter.toFloat() / numberOfDisks.toFloat()
+        val twirlXOffset = calculator.pointOnCircleX(
+            arcRelativePosition = twirlXRatio * normalizedCounter,
+            radius = twirlRadius
+        )
+        val twirlYOffset = calculator.pointOnCircleY(
+            arcRelativePosition = twirlYRatio * normalizedCounter,
+            radius = twirlRadius
+        )
+        val diskX = stackCenterX + twirlXOffset
+        val diskY = stackCenterY + twirlYOffset
+
+        matthew.paintCircularShapeWithRadius(
+            diskX,
+            diskY,
+            radius,
+            diskColor,
+            canvas
+        )
     }
 
     companion object {
