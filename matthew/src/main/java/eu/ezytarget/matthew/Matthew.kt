@@ -26,12 +26,23 @@ class Matthew() {
         colorSource.populate(resources)
     }
 
+    fun configuredBitmapBackedCanvasWithColorSource(
+        width: Int,
+        height: Int,
+        bitmapConfig: Bitmap.Config = Bitmap.Config.ARGB_8888,
+        random: Random = Random(System.currentTimeMillis()),
+        resources: Resources
+    ): BitmapBackedCanvas {
+        populateColorProvider(resources)
+        return configuredBitmapBackedCanvas(width, height, bitmapConfig, random)
+    }
+
     fun configuredBitmapBackedCanvas(
         width: Int,
         height: Int,
         bitmapConfig: Bitmap.Config = Bitmap.Config.ARGB_8888,
         random: Random = Random(System.currentTimeMillis())
-    ): BitmapBackedCanvas{
+    ): BitmapBackedCanvas {
         val bitmapBackedCanvas = bitmapBackedCanvas(width, height, bitmapConfig)
         configurePaintWrapper(bitmapBackedCanvas.canvas)
         selectRandomPalettes(random)
