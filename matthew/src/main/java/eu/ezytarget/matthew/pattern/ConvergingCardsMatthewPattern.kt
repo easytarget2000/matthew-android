@@ -1,41 +1,51 @@
 package eu.ezytarget.matthew.pattern
 
 import android.graphics.Canvas
-import eu.ezytarget.matthew.CanvasSizeQuantifier
 import eu.ezytarget.matthew.Matthew
-import eu.ezytarget.matthew.util.Calculator
 import eu.ezytarget.matthew.util.RandomNumberGenerator
 
 class ConvergingCardsMatthewPattern(
-    private val canvasSizeQuantifier: CanvasSizeQuantifier = CanvasSizeQuantifier(),
-    private val calculator: Calculator = Calculator(),
     private val randomNumberGenerator: RandomNumberGenerator = RandomNumberGenerator()
 ) {
+    var numberOfCards = 10
+    var initialDegrees = -40f
+    var deltaDegrees = -1f
+
+    fun configureRandomly() {
+        numberOfCards = randomNumberGenerator.int(8, 12)
+//        initialDegrees = randomNumberGenerator.float(-30f, -60f)
+        deltaDegrees = 5f//randomNumberGenerator.float(-1f, 1f)
+    }
 
     fun paintRandomly(matthew: Matthew, canvas: Canvas) {
-        val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
+        val minCardWidth = canvas.width / numberOfCards.toFloat()
+        val maxCardWidth = canvas.width / 4f
 
-        val rectangleWidth = imageSize * 2f
-        val rectangleHeight = imageSize / 7f
-        val rectangleTopOffset = -rectangleHeight * 1.5f
-        val rectangleTopIncrement = rectangleHeight * 0.8f
-        val rectangleLeft = -rectangleWidth / 4f
-        val baseRectangleDegrees = 20f
-        val rectangleDegreesIncrement = 2f
-        val color = matthew.colorAtModuloIndex(4)
+        val cardHeight = canvas.height * 2f
+        val rectangleTop = 0f - (cardHeight / 4f)
+        var rectangleLeft = canvas.width.toFloat()
+        var color = matthew.colorAtModuloIndex(0)
 
-        for (rectangleCounter in 5 downTo 0) {
-            val rectangleTop = rectangleTopOffset + (rectangleCounter * rectangleTopIncrement)
-            val rectangleDegrees = baseRectangleDegrees + (rectangleCounter * rectangleDegreesIncrement)
+        for(cardCounter in numberOfCards downTo 0) {
+            val cardWidth = randomNumberGenerator.float(minCardWidth, maxCardWidth)
+            rectangleLeft -= cardWidth
+            val rectangleDegrees = initialDegrees + (cardCounter * deltaDegrees)
+            val changeColor = randomNumberGenerator.boolean(trueProbability = 0.7f)
+            if (changeColor) {
+                color = matthew.colorAtModuloIndex(cardCounter)
+            }
+
             matthew.paintRectangle(
                 rectangleLeft,
                 rectangleTop,
-                rectangleWidth,
-                rectangleHeight,
+                cardWidth,
+                cardHeight,
                 rectangleDegrees,
                 color,
                 canvas
             )
         }
+
     }
+
 }

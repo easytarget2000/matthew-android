@@ -26,6 +26,7 @@ class ExemplaryMatthew(
     }
 
     fun paintConvergingCardsPattern(canvas: Canvas) {
+        convergingCardsMatthewPattern.configureRandomly()
         convergingCardsMatthewPattern.paintRandomly(matthew, canvas)
     }
 
