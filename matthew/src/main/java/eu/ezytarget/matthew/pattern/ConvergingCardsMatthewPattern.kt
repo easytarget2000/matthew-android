@@ -19,7 +19,7 @@ class ConvergingCardsMatthewPattern(
         deltaDegrees = randomNumberGenerator.float(-3f, 3f)
         changeColorProbability = randomNumberGenerator.float(0.1f, 0.5f)
     }
-ø
+    
     fun paintRandomly(matthew: Matthew, canvas: Canvas) {
         val longestCanvasSideLength = max(canvas.width, canvas.height)
         val minCardWidth = longestCanvasSideLength / numberOfCards.toFloat()
@@ -30,7 +30,7 @@ class ConvergingCardsMatthewPattern(
         var rectangleLeft = canvas.width.toFloat() * 2f
         var color = matthew.colorAtModuloIndex(0)
 
-        for(cardCounter in numberOfCards downTo 0) {
+        for (cardCounter in numberOfCards downTo 0) {
             val cardWidth = randomNumberGenerator.float(minCardWidth, maxCardWidth)
             rectangleLeft -= cardWidth
             val rectangleDegrees = initialDegrees + (cardCounter * deltaDegrees)
