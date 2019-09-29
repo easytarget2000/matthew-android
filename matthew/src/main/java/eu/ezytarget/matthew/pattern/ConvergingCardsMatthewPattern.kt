@@ -8,26 +8,25 @@ import kotlin.math.max
 class ConvergingCardsMatthewPattern(
     private val randomNumberGenerator: RandomNumberGenerator = RandomNumberGenerator()
 ) {
-    var numberOfCards = 10
-    var initialDegrees = -45f
-    var deltaDegrees = -2f
-    var changeColorProbability = 0.4f
+    var numberOfCards = 4
+    var initialDegrees = -40f
+    var deltaDegrees = 0f
+    var changeColorProbability = 1f
 
     fun configureRandomly() {
         numberOfCards = randomNumberGenerator.int(4, 10)
-        initialDegrees = -randomNumberGenerator.float(30f, 50f)
+        initialDegrees = -randomNumberGenerator.float(-35f, 35f)
         deltaDegrees = randomNumberGenerator.float(-3f, 3f)
-        changeColorProbability = randomNumberGenerator.float(0.1f, 0.5f)
+        changeColorProbability = randomNumberGenerator.float(0f, 1f)
     }
-    
+
     fun paintRandomly(matthew: Matthew, canvas: Canvas) {
-        val longestCanvasSideLength = max(canvas.width, canvas.height)
-        val minCardWidth = longestCanvasSideLength / numberOfCards.toFloat()
+        val minCardWidth = canvas.width / numberOfCards.toFloat()
         val maxCardWidth = minCardWidth * 3f
 
-        val cardHeight = longestCanvasSideLength * 3f
-        val rectangleTop = 0f - (cardHeight / 2f)
-        var rectangleLeft = canvas.width.toFloat() * 2f
+        val cardHeight = canvas.height * 2f
+        val rectangleTop = 0f - cardHeight * 0.25f
+        var rectangleLeft = canvas.width.toFloat()
         var color = matthew.colorAtModuloIndex(0)
 
         for (cardCounter in numberOfCards downTo 0) {
@@ -52,5 +51,4 @@ class ConvergingCardsMatthewPattern(
         }
 
     }
-
 }
