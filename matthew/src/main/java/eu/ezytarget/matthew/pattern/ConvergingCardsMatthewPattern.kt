@@ -15,7 +15,7 @@ class ConvergingCardsMatthewPattern(
 
     fun configureRandomly() {
         numberOfCards = randomNumberGenerator.int(4, 10)
-        initialDegrees = -randomNumberGenerator.float(-35f, 35f)
+        initialDegrees = -randomNumberGenerator.float(-30f, 30f)
         deltaDegrees = randomNumberGenerator.float(-3f, 3f)
         changeColorProbability = randomNumberGenerator.float(0f, 1f)
     }
