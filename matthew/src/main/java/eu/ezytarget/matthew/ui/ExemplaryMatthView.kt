@@ -35,7 +35,7 @@ class ExemplaryMatthView: View {
         }
 
         exemplaryMatthew.setupAndDrawBackground(canvas)
-        exemplaryMatthew.paintTwirlyDisksPattern(canvas)
+        exemplaryMatthew.paintConvergingCardsPattern(canvas)
     }
 
     fun disableHardwareAcceleration() {

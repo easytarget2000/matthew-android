@@ -4,11 +4,18 @@ import kotlin.random.Random
 
 class RandomNumberGenerator(
     seed: Int = System.currentTimeMillis().toInt(),
-    val source: Random = Random(seed)
+    private val source: Random = Random(seed)
 ) {
-
     fun boolean(): Boolean {
         return source.nextBoolean()
+    }
+
+    fun boolean(trueProbability: Float): Boolean {
+        when {
+            trueProbability >= 1f -> return true
+            trueProbability <= 0f -> return false
+            else -> return float(0f, 1f) <= trueProbability
+        }
     }
 
     fun int(from: Int = Int.MIN_VALUE, until: Int = Int.MAX_VALUE): Int {

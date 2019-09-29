@@ -3,6 +3,7 @@ package eu.ezytarget.matthew
 import android.content.res.Resources
 import android.graphics.Canvas
 import android.graphics.Paint
+import eu.ezytarget.matthew.pattern.ConvergingCardsMatthewPattern
 import eu.ezytarget.matthew.pattern.TwirlyDisksMatthewPattern
 import kotlin.math.min
 
@@ -12,6 +13,8 @@ class ExemplaryMatthew(
 ) {
 
     private val matthew: Matthew = Matthew(resources)
+    var convergingCardsMatthewPattern: ConvergingCardsMatthewPattern
+            = ConvergingCardsMatthewPattern()
     var twirlyDisksMatthewPattern: TwirlyDisksMatthewPattern = TwirlyDisksMatthewPattern()
     val paint: Paint get() = matthew.paint
 
@@ -22,31 +25,14 @@ class ExemplaryMatthew(
         matthew.fillCanvas(canvas, backgroundColor)
     }
 
-    fun paintDiagonalTopStripes(canvas: Canvas) {
-        val imageSize = canvasSizeQuantifier.valueForCanvas(canvas)
+    fun paintConvergingCardsPattern(canvas: Canvas) {
+        convergingCardsMatthewPattern.configureRandomly()
+        convergingCardsMatthewPattern.paintRandomly(matthew, canvas)
+    }
 
-        val rectangleWidth = imageSize * 2f
-        val rectangleHeight = imageSize / 7f
-        val rectangleTopOffset = -rectangleHeight * 1.5f
-        val rectangleTopIncrement = rectangleHeight * 0.8f
-        val rectangleLeft = -rectangleWidth / 4f
-        val baseRectangleDegrees = 20f
-        val rectangleDegreesIncrement = 2f
-        val color = matthew.colorAtModuloIndex(4)
-
-        for (rectangleCounter in 5 downTo 0) {
-            val rectangleTop = rectangleTopOffset + (rectangleCounter * rectangleTopIncrement)
-            val rectangleDegrees = baseRectangleDegrees + (rectangleCounter * rectangleDegreesIncrement)
-            matthew.paintRectangle(
-                rectangleLeft,
-                rectangleTop,
-                rectangleWidth,
-                rectangleHeight,
-                rectangleDegrees,
-                color,
-                canvas
-            )
-        }
+    fun paintTwirlyDisksPattern(canvas: Canvas) {
+        twirlyDisksMatthewPattern.configureRandomly()
+        twirlyDisksMatthewPattern.paint(matthew, canvas)
     }
 
     fun paintSimpleDiskPattern(canvas: Canvas) {
@@ -69,8 +55,4 @@ class ExemplaryMatthew(
         }
     }
 
-    fun paintTwirlyDisksPattern(canvas: Canvas) {
-        twirlyDisksMatthewPattern.configureRandomly()
-        twirlyDisksMatthewPattern.paint(matthew, canvas)
-    }
 }
