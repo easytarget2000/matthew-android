@@ -3,11 +3,10 @@ package eu.ezytarget.matthew.pattern
 import android.graphics.Canvas
 import eu.ezytarget.matthew.Matthew
 import eu.ezytarget.matthew.util.RandomNumberGenerator
-import kotlin.math.max
 
-class ConvergingCardsMatthewPattern(
-    private val randomNumberGenerator: RandomNumberGenerator = RandomNumberGenerator()
-) {
+class ConvergingCardsMatthewPattern {
+
+    var randomNumberGenerator: RandomNumberGenerator = RandomNumberGenerator()
     var numberOfCards = 4
     var initialDegrees = -40f
     var deltaDegrees = 0f
