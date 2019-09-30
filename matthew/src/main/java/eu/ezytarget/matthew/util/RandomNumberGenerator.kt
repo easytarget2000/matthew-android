@@ -4,7 +4,7 @@ import kotlin.random.Random
 
 class RandomNumberGenerator(
     seed: Int = System.currentTimeMillis().toInt(),
-    private val source: Random = Random(seed)
+    val source: Random = Random(seed)
 ) {
     fun boolean(): Boolean {
         return source.nextBoolean()
